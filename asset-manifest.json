@@ -1,0 +1,16 @@
+{
+  "files": {
+    "main.css": "/lastisee.github.io/static/css/main.073c9b0a.css",
+    "main.js": "/lastisee.github.io/static/js/main.936bda8e.js",
+    "static/js/787.c2651732.chunk.js": "/lastisee.github.io/static/js/787.c2651732.chunk.js",
+    "static/media/logo.svg": "/lastisee.github.io/static/media/logo.6ce24c58023cc2f8fd88fe9d219db6c6.svg",
+    "index.html": "/lastisee.github.io/index.html",
+    "main.073c9b0a.css.map": "/lastisee.github.io/static/css/main.073c9b0a.css.map",
+    "main.936bda8e.js.map": "/lastisee.github.io/static/js/main.936bda8e.js.map",
+    "787.c2651732.chunk.js.map": "/lastisee.github.io/static/js/787.c2651732.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.073c9b0a.css",
+    "static/js/main.936bda8e.js"
+  ]
+}
