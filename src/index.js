@@ -12,6 +12,7 @@ import {
 } from "react-router-dom";
 import Test from './pages/Test';
 import MyLayout from './layouts/MyLayout'
+import BlogList from './pages/BlogList';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
@@ -20,8 +21,10 @@ root.render(
     <BrowserRouter basename={'/'}>
         <Routes basePath={'/'}>
           <Route path='/' element={<MyLayout />}>
-            <Route path='/home' element={<App />} />
-            <Route path='/test' element={<Test />} />
+            <Route path='/' element={<App />} />
+            <Route path='/javascript' element={<BlogList archiveName='javascript' />} />
+            <Route path='/react' element={<BlogList archiveName='react' />} />
+            <Route path='/note' element={<BlogList archiveName='note' />} />
           </Route>
           
         </Routes>

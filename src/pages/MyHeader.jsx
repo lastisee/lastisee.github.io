@@ -1,5 +1,8 @@
 import styles from './MyHeader.less'
 import { Link } from 'react-router-dom'
+
+console.log("🚀 ~ file: MyHeader.jsx ~ line 2 ~ styles", styles)
+
 const MyHeader = () => {
     return (
         <div className={styles.myHeader}>
