@@ -10,7 +10,7 @@ import {
   Link,
   LayoutRoute
 } from "react-router-dom";
-import Test from './pages/Test';
+import BlogDetail from './pages/BlogDetail';
 import MyLayout from './layouts/MyLayout'
 import BlogList from './pages/BlogList';
 
@@ -25,6 +25,7 @@ root.render(
             <Route path='/javascript' element={<BlogList archiveName='javascript' />} />
             <Route path='/react' element={<BlogList archiveName='react' />} />
             <Route path='/note' element={<BlogList archiveName='note' />} />
+            <Route path='/blog' element={<BlogDetail />} />
           </Route>
           
         </Routes>

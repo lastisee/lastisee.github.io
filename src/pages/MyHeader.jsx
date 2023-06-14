@@ -13,6 +13,9 @@ const MyHeader = () => {
                 <Link to='/react'>React</Link>
                 <Link to='/note'>随记</Link>
             </div>
+            <div className={styles.poem}>
+                <span>行到水穷处，坐看云起时</span>
+            </div>
             
         </div>
     )
