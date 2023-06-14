@@ -6,10 +6,14 @@ console.log("🚀 ~ file: MyHeader.jsx ~ line 2 ~ styles", styles)
 const MyHeader = () => {
     return (
         <div className={styles.myHeader}>
-            <Link to='/'>Home</Link>
-            <Link to='/javascript'>Javascript</Link>
-            <Link to='/react'>React</Link>
-            <Link to='/note'>随记</Link>
+            <div className={styles.title}>lastisee</div>
+            <div className={styles.link}>
+                <Link to='/'>Home</Link>
+                <Link to='/javascript'>Javascript</Link>
+                <Link to='/react'>React</Link>
+                <Link to='/note'>随记</Link>
+            </div>
+            
         </div>
     )
 }

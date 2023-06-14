@@ -14,8 +14,6 @@ function App() {
         <button onClick={()=> setCount(prev => prev - 1)} style={{marginRight: '12px'}}>-</button>
         <button onClick={()=> setCount(prev => prev + 1)}>+</button>
       </div>
-      <Link to='/test'>goto test page</Link>
-
     </div>
   );
 }
