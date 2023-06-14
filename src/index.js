@@ -3,21 +3,31 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import {
+  BrowserRouter,
+  Routes,
+  Route,
+  Link,
+  LayoutRoute
+} from "react-router-dom";
+import Test from './pages/Test';
+import MyLayout from './layouts/MyLayout'
 
-import {BrowserRouter} from 'react-router-dom'
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
 root.render(
-   <BrowserRouter basename={'/'}>
-   {/* <BrowserRouter basename={process.env.PUBLIC_URL}> */}
-     <App />
-   </BrowserRouter>
+  <React.StrictMode>
+    <BrowserRouter basename={'/'}>
+        <Routes basePath={'/'}>
+          <Route path='/' element={<MyLayout />}>
+            <Route path='/home' element={<App />} />
+            <Route path='/test' element={<Test />} />
+          </Route>
+          
+        </Routes>
+    </BrowserRouter>
+  </React.StrictMode>
 )
-// root.render(
-//   <React.StrictMode>
-//     <App />
-//   </React.StrictMode>
-// );
 
 // If you want to start measuring performance in your app, pass a function
 // to log results (for example: reportWebVitals(console.log))
