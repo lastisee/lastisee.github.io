@@ -7,7 +7,7 @@ const {Header, Footer, Content} = AntdLayout
 
 const MyLayout = (props)=> {
     return (
-        <AntdLayout className={styles.myLayout}>
+        <AntdLayout>
             <Header>
                 <MyHeader />
             </Header>
