@@ -1,6 +1,7 @@
 import { Link, useNavigate } from 'react-router-dom'
 import styles from './BlogList.less'
 import { useMemo } from 'react'
+import { Empty } from 'antd'
 import fileList from '../md/fileList.json'
 
 console.log("🚀 ~ file: BlogList.jsx ~ line 5 ~ fileList", fileList)
@@ -13,9 +14,9 @@ const BlogList = ({ archiveName}) => {
     }, [archiveName])
     return (
         <div className={styles.blogList}>
-            {currentList.map(item => {
+            {currentList?.length > 0 ? currentList.map(item => {
                 return <BlogItem key={item.title} {...item} />
-            })}
+            }) : <Empty />}
         </div>
     )
 }
