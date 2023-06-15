@@ -33,7 +33,7 @@ root.render(
             <Route path='/javascript' element={<BlogList archiveName='javascript' />} />
             <Route path='/react' element={<BlogList archiveName='react' />} />
             <Route path='/note' element={<BlogList archiveName='note' />} />
-            <Route path='/blog' element={<BlogDetail />} />
+            <Route path='/blog/:id' element={<BlogDetail />} />
           </Route>
           :
           <Route path='/' element={<MyLayoutM />}>
