@@ -15,8 +15,6 @@ const BlogDetail = ({fileName}) => {
         return fileList.find(f => f.id === Number(params?.id))
     }, [params?.id])
 
-    console.log('file', currentFile)
-
     useEffect(()=> {
         if(currentFile){
             const loadFile = async () => {
