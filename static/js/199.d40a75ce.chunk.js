@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkreact_pages=self.webpackChunkreact_pages||[]).push([[199],{1199:function(e,a,s){e.exports=s.p+"static/media/blog2.efa20e7532bd8960dc5a.md"}}]);
