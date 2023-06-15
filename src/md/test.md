@@ -1,8 +1,3 @@
----
-title: react中使用useMemo包裹函数，避免重复请求
-date: 2023-06-13 21:26:40
-tags:
----
 ### 通过useMemo包裹异步函数，更加简洁地更新子组件的数据
 
 ```javascript
@@ -116,11 +111,6 @@ const SonCompB = ({a}) => {
 
 export default StateTest
 ```
----
-title: JavaScript事件/消息循环处理机制
-date: 2023-06-11
-tags:
----
 ### JavaScript事件/消息循环处理机制
 
 浏览器运行时，有多个进程在工作，包括

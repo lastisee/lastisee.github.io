@@ -1,19 +1,23 @@
 import { useEffect, useState } from 'react'
-import Markdown from 'react-markdown'
 import md from '../md/test.md'
+import {marked} from 'marked'
 import styles from './BlogDetail.less'
 
 const BlogDetail = () => {
 
-    const [src, setSrc] = useState()
+    const [markdownContent, setMarkdownContent] = useState('预览内容') //html内容
     useEffect(()=> {
         fetch(md).then(res => res.text())
-        .then(text => setSrc(text))
-    })
+        .then(text => {
+            let html = marked(text)
+            setMarkdownContent(html)
+        })
+    }, [])
+
     return (
         <div className={styles.blogDetail}>
             <h3>这是文章详情</h3>
-            <Markdown children={src} />
+            <div dangerouslySetInnerHTML={{ __html: markdownContent  }}></div>
         </div>
     )
 }
