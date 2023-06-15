@@ -1,6 +1,8 @@
+import styles from './HomeM.less'
+
 const HomeM = () =>{
     return (
-        <div >
+        <div className={styles.homeM}>
             lastisee mobile-app
         </div>
     )
