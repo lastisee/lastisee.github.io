@@ -17,11 +17,13 @@ import MyLayoutM from './layouts/MyLayoutM'
 import BlogList from './pages/BlogList';
 import HomeM from './pages/mobile/HomeM';
 import NotFound from './pages/NotFound';
+import BlogListM from './pages/mobile/BlogListM';
+import BlogDetailM from './pages/mobile/BlogDetailM';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 const deviceType = new MobileDetect(window.navigator.userAgent)
-const isWeb = deviceType.ua?.includes('Windows')
-
+const reg = /(Mobile|Android|iPhone|BlackBerry|iPod|Windows Phone)/i
+const isWeb = !reg.test(deviceType.ua)
 
 root.render(
   <React.StrictMode>
@@ -39,6 +41,10 @@ root.render(
           <Route path='/' element={<MyLayoutM />}>
               <Route path='/*' element={<NotFound />} />
               <Route path='/' element={<HomeM />} />
+              <Route path='/javascript' element={<BlogListM archiveName='javascript' />} />
+              <Route path='/react' element={<BlogListM archiveName='react' />} />
+              <Route path='/note' element={<BlogListM archiveName='note' />} />
+              <Route path='/blog/:id' element={<BlogDetailM />} />
           </Route>}
           
         </Routes>
