@@ -9,6 +9,14 @@
     },
     {
         "id": 2,
+        "fileName": "blog3.md",
+        "author": "lastisee",
+        "title": "umi3升级umi4注意事项",
+        "createDate": "2023-06-17",
+        "archive": "react"
+    },
+    {
+        "id": 3,
         "fileName": "blog2.md",
         "author": "lastisee",
         "title": "通过useMemo包裹异步函数，更加简洁地更新子组件的数据",

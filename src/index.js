@@ -8,8 +8,6 @@ import {
   BrowserRouter,
   Routes,
   Route,
-  Link,
-  LayoutRoute
 } from "react-router-dom";
 import BlogDetail from './pages/BlogDetail';
 import MyLayout from './layouts/MyLayout'
