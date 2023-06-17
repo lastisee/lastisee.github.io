@@ -1,10 +1,17 @@
 import { useEffect, useState, useMemo } from 'react'
 import {marked} from 'marked'
+import { mangle } from "marked-mangle"
 import styles from './BlogDetailM.less'
 import { useParams } from 'react-router-dom'
 import fileList from '../../md/fileList.json'
 
 const BlogDetail = ({fileName}) => {
+
+    marked.use(mangle)
+    marked.use({
+        mangle: false,
+        headerIds: false,
+    })
 
     const params = useParams()
 
