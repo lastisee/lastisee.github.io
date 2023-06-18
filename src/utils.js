@@ -8,23 +8,49 @@ export function generateRandomString(length) {
     return result;
   }
 
-export const getTargetLocByAngleAndCoordinate = (x, y, angle) => {
-  if(angle === 0 || angle === 360){
-    return [1920, 0]
-  }else if(angle > 0 && angle <90){
-    return [x + y * Math.tan(angle), 0]
-  }else if(angle === 90){
-    return [1920, y]
-  }else if(angle > 90 && angle < 180){
-    return [x + (1080 - y) * Math.tan(180 - angle), 1080]
-  }else if(angle === 180){
-    return [x, 1080]
-  }else if(angle > 180 && angle < 270){
-    return [x - (1080 - y) * Math.tan(angle - 180), 1080]
-  }else if(angle > 270 && angle < 360){
-    return [x - y * Math.tan(360 - angle), 0]
+export function calculateIntersectionPoints(x, y, angle, width, height) {
+  const r = Math.max(width, height); // 延长线的长度，取有效区域的对角线长度
+  const theta = (90 - angle) * Math.PI / 180; // 将角度转换为弧度，并进行方向调整
+  const x1 = x + r * Math.cos(theta);
+  const y1 = y - r * Math.sin(theta); // y轴方向需要进行反转
+
+  const intersections = [];
+  // 计算延长线与有效区域四条边的交点
+  if (x1 < 0) {
+    const yInt = y - (0 - x) * Math.tan(theta); // y轴方向需要进行反转，并进行方向调整
+    if (yInt >= 0 && yInt <= height) {
+      intersections.push({ x: 0, y: yInt });
+    }
+  } else if (x1 > width) {
+    const yInt = y - (width - x) * Math.tan(theta); // y轴方向需要进行反转，并进行方向调整
+    if (yInt >= 0 && yInt <= height) {
+      intersections.push({ x: width, y: yInt });
+    }
+  }
+  if (y1 < 0) {
+    const xInt = x - (0 - y) / Math.tan(theta); // y轴方向需要进行反转，并进行方向调整
+    if (xInt >= 0 && xInt <= width) {
+      intersections.push({ x: xInt, y: 0 });
+    }
+  } else if (y1 > height) {
+    const xInt = x - (height - y) / Math.tan(theta); // y轴方向需要进行反转，并进行方向调整
+    if (xInt >= 0 && xInt <= width) {
+      intersections.push({ x: xInt, y: height });
+    }
+  }
+  if(intersections.length){
+    let targetX = intersections[0].x
+    let targetY = intersections[0].y
+    if(targetX > 0){
+      targetX -= 80
+    }
+    if(targetY > 0){
+      targetY -= 20
+    }
+    console.log('计算成功', x, y, angle, width, height, intersections?.[0])
+    return {x: targetX, y: targetY}
   }else {
-    console.error('angle is error')
-    return [x, y]
+    console.error('计算失败',  x, y, angle, width, height)
+    return {x, y}
   }
 }
