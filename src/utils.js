@@ -9,6 +9,8 @@ export function generateRandomString(length) {
   }
 
 export function calculateIntersectionPoints(x, y, angle, width, height) {
+  if(x <= 0) x = 0
+  if(y <= 0) y = 0
   const r = Math.max(width, height); // 延长线的长度，取有效区域的对角线长度
   const theta = (90 - angle) * Math.PI / 180; // 将角度转换为弧度，并进行方向调整
   const x1 = x + r * Math.cos(theta);
@@ -47,7 +49,6 @@ export function calculateIntersectionPoints(x, y, angle, width, height) {
     if(targetY > 0){
       targetY -= 20
     }
-    console.log('计算成功', x, y, angle, width, height, intersections?.[0])
     return {x: targetX, y: targetY}
   }else {
     console.error('计算失败',  x, y, angle, width, height)
