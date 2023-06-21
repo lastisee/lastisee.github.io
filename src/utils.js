@@ -9,6 +9,8 @@ export function generateRandomString(length) {
   }
 
 export function calculateIntersectionPoints(x, y, angle, width, height) {
+  x = Number.parseInt(x)
+  y = Number.parseInt(y)
   if(x <= 0) x = 0
   if(y <= 0) y = 0
   const r = Math.max(width, height); // 延长线的长度，取有效区域的对角线长度
