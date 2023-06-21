@@ -3,7 +3,7 @@ import Ball from "./Ball"
 import styles from './Ball.less'
 import { useEffect, useRef, useState } from "react";
 
-const idxList = Array.from({length: 20}, () => ({num: Math.floor(Math.random() * 10), key: generateRandomString(8)}));
+const idxList = Array.from({length: 1}, () => ({num: Math.floor(Math.random() * 10), key: generateRandomString(8)}));
 
 const ScreenSaver = () => {
 

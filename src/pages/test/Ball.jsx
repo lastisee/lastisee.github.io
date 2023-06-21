@@ -1,6 +1,6 @@
 import styles from './Ball.less'
 import classNames from 'classnames'
-import { useEffect, useMemo, useRef, useState, forwardRef } from 'react'
+import { useEffect, useMemo, useRef, useState } from 'react'
 import { calculateIntersectionPoints } from '../../utils'
 import { useInterval } from 'ahooks'
 
@@ -27,6 +27,7 @@ const Ball = ({colorIdx = 0, id = '', updateLoc}) => {
     const [hasInit, setHasInit] = useState(false)
     //如果到达了边缘 重新生成targetLoc
     const [isToEdge, setIsToEdge] = useState(true)
+    console.log("🚀 ~ file: Ball.jsx ~ line 30 ~ Ball ~ isToEdge", isToEdge)
 
     const [currentLoc, setCurrentLoc] = useState()
 
@@ -46,13 +47,12 @@ const Ball = ({colorIdx = 0, id = '', updateLoc}) => {
             }`
         }
         return ''
-    }, [currentLoc, targetLoc])
+    }, [currentLoc, targetLoc, id])
 
     // console.log('loc----->', currentLoc?.x, currentLoc?.y, targetLoc?.x, targetLoc?.y)
 
-    useEffect(()=> {
-        if(keyframe){
-            console.log('更新keyframe', keyframe)
+    useEffect(() => {
+        if(isToEdge){
             //先清除head里面旧的keyframe
             const head = document.head;
             // 获取 head 标签内的所有 style 标签
@@ -62,8 +62,14 @@ const Ball = ({colorIdx = 0, id = '', updateLoc}) => {
                 const content = tag.textContent;
                     if (content.includes(`@keyframes ball-run-${id}`)) {
                         tag.parentNode.removeChild(tag);
+                        console.log('移除keyframe')
                 }
             });
+        }
+    }, [isToEdge])
+
+    useEffect(()=> {
+        if(keyframe){
             const style = document.createElement('style');
             // 将 keyframes样式写入style内
             style.innerHTML = keyframe;
@@ -72,7 +78,7 @@ const Ball = ({colorIdx = 0, id = '', updateLoc}) => {
             document.getElementsByTagName('head')[0].appendChild(style);
             setIsToEdge(false)
         }
-    }, [keyframe])
+    }, [keyframe, id])
 
     useEffect(()=> {
         //只会执行一次，是给小球第一次运动的终点位置赋值
@@ -103,7 +109,7 @@ const Ball = ({colorIdx = 0, id = '', updateLoc}) => {
             setCurrentLoc({x: startX, y: startY})
             setHasInit(true)
         }
-    }, [ballRef?.current, hasInit])
+    }, [hasInit])
 
     
     useInterval(()=> {
@@ -111,6 +117,7 @@ const Ball = ({colorIdx = 0, id = '', updateLoc}) => {
         const rect = ballRef?.current.getBoundingClientRect();
         const x = Number.parseInt(rect.left)
         const y = Number.parseInt(rect.top)
+        console.log('当前位置', x, y)
         if(!isToEdge && (x <= 1 || x >= wrapper.clientWidth - 79 || y <= 1 || y >= wrapper.clientHeight - 79)){
             console.log('到达边界', x, y)
             setIsToEdge(true)
@@ -122,7 +129,8 @@ const Ball = ({colorIdx = 0, id = '', updateLoc}) => {
 
     return (
         <div id={id} ref={ballRef} className={classNames(styles.ball)} style={{backgroundColor: colorMap[colorIdx], 
-            animation: `ball-run-${id} 3s ${isToEdge ? 'paused' : 'running'} infinite`}}>
+            animation: `ball-run-${id} 5s infinite`}}>
+            {/* animation: `ball-run-${id} 3s ${isToEdge ? 'paused' : 'running'} 1`}}> */}
         </div>
     )
 }
