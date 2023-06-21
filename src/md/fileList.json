@@ -30,5 +30,13 @@
         "title": "使用python，在两份文件中寻找文本内容匹配的答案",
         "createDate": "2023-06-21",
         "archive": "note"
+    },
+    {
+        "id": 5,
+        "fileName": "blog5.md",
+        "author": "lastisee",
+        "title": "使用react高阶组件，实现避免第一次请求重定向影响页面体验的问题",
+        "createDate": "2023-06-21",
+        "archive": "react"
     }
 ]
