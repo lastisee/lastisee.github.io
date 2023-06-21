@@ -60,7 +60,7 @@ const Ball = ({colorIdx = 0, id = '', updateLoc}) => {
             // 遍历所有 style 标签，删除内容中包含 @keyframes 的标签
             styleTags.forEach(tag => {
                 const content = tag.textContent;
-                    if (content.includes('@keyframes')) {
+                    if (content.includes(`@keyframes ball-run-${id}`)) {
                         tag.parentNode.removeChild(tag);
                 }
             });
