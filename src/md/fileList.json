@@ -54,5 +54,13 @@
         "title": "react 开发过程中，使用函数式组件无限刷新（rerender)问题排查",
         "createDate": "2023-07-02",
         "archive": "react"
+    },
+    {
+        "id": 8,
+        "fileName": "blog8.md",
+        "author": "lastisee",
+        "title": "使用marked-highlight及highlight.js完成md文件的代码高亮",
+        "createDate": "2023-07-02",
+        "archive": "note"
     }
 ]
