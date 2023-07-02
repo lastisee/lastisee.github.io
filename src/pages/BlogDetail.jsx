@@ -6,36 +6,32 @@ import fileList from '../md/fileList.json'
 import {markedHighlight} from "marked-highlight";
 import hljs from 'highlight.js';
 // import 'highlight.js/styles/vs.css'
-import 'highlight.js/styles/school-book.css'
+// import 'highlight.js/styles/school-book.css'
 // import 'highlight.js/styles/base16/harmonic16-dark.css'
-// import 'highlight.js/styles/base16/monokai.css'
+import 'highlight.js/styles/base16/monokai.css'
 
+export function addClassToPreTags(html) {
+    const parser = new DOMParser();
+    const doc = parser.parseFromString(html, 'text/html');
+    const preTags = doc.querySelectorAll('pre:not([class])');
+    preTags.forEach(tag => {
+      tag.classList.add('hljs');
+      tag.style.padding = '12px'
+    });
+    return doc.documentElement.outerHTML;
+  }
+  
+//这个设置是全局的，且只能放在组件外，所以移动端详情页不需要做这个配置，直接使用marked即可
 marked.use(markedHighlight({
     langPrefix: 'hljs language-',
     highlight(code, lang) {
-      const language = hljs.getLanguage(lang) ? lang : 'plaintext';
-      return hljs.highlight(code, { language }).value;
+    const language = hljs.getLanguage(lang) ? lang : 'plaintext';
+    return hljs.highlight(code, { language }).value;
     }
 }));
-  
-marked.parse(`
-\`\`\`javascript
-const highlight = "code";
-\`\`\`
-`);
+
 const BlogDetail = ({fileName}) => {
 
-    const rendererMD = new marked.Renderer();
-    marked.setOptions({
-        renderer: rendererMD,
-        gfm: true,
-        tables: true,
-        breaks: false,
-        pedantic: false,
-        sanitize: false,
-        smartLists: true,
-        smartypants: false
-      });
     const params = useParams()
 
     const [markdownContent, setMarkdownContent] = useState('') //html内容
@@ -46,18 +42,19 @@ const BlogDetail = ({fileName}) => {
     }, [params?.id])
 
     useEffect(()=> {
-        if(currentFile){
+        if(currentFile && !markdownContent){
             const loadFile = async () => {
                 const mdFile = await import(`../md/${currentFile.fileName}`)
                 const filePath = await mdFile.default
                 fetch(filePath).then(res => res.text()).then(text => {
-                    const html = marked(text)
+                    //highlight.js处理过后的HTML段的pre标签没有类名，手动加上，同时加上padding
+                    const html = addClassToPreTags(marked(text))
                     setMarkdownContent(html)
                 })
             }
             loadFile()
         }
-    }, [currentFile])
+    }, [currentFile, markdownContent])
 
     return (
         <div className={styles.blogDetail}>
