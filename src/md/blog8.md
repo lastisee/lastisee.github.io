@@ -134,7 +134,7 @@
   export default BlogDetail
   ```
 
-- 最后想多说两句，之前是使用gh-pages将react项目部署到github pages时遇到的坑，如果你的xxx.github.io需要绑定域名，你需要在对应项目的gh-pages分支上根目录添加CNAME文件，同时package.json里面的homepage属性直接改为`http://xxx.com`即可。
+- 最后想多说两句，之前是使用gh-pages将react项目部署到github pages时遇到的坑，如果你的xxx.github.io需要绑定域名，你需要在对应项目的gh-pages分支上根目录添加CNAME文件（不然会deploy一次就需要去github仓库设置页面配置一次），同时package.json里面的homepage属性直接改为`http://xxx.com`即可。
 
   如果不需要绑定域名，直接参照网上现有教程即可。
 
