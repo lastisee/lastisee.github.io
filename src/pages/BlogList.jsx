@@ -8,7 +8,7 @@ const BlogList = ({ archiveName}) => {
 
 
     const currentList = useMemo(() =>{
-        return fileList.filter(f => f.archive === archiveName)
+        return fileList.filter(f => f.archive === archiveName).reverse()
     }, [archiveName])
     return (
         <div className={styles.blogList}>

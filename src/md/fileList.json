@@ -38,5 +38,13 @@
         "title": "使用react高阶组件，实现避免第一次请求重定向影响页面体验的问题",
         "createDate": "2023-06-21",
         "archive": "react"
+    },
+    {
+        "id": 6,
+        "fileName": "blog6.md",
+        "author": "lastisee",
+        "title": "在umi项目中，实现前端文件更新之后页面进行提示",
+        "createDate": "2023-07-02",
+        "archive": "note"
     }
 ]
