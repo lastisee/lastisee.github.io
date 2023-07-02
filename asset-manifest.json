@@ -1,25 +1,29 @@
 {
   "files": {
-    "main.css": "/static/css/main.99178919.css",
-    "main.js": "/static/js/main.46dd8870.js",
+    "main.css": "/static/css/main.b5ac3c72.css",
+    "main.js": "/static/js/main.fc078e56.js",
     "static/js/978.ad13c691.chunk.js": "/static/js/978.ad13c691.chunk.js",
     "static/js/199.d40a75ce.chunk.js": "/static/js/199.d40a75ce.chunk.js",
     "static/js/389.3b33388b.chunk.js": "/static/js/389.3b33388b.chunk.js",
-    "static/js/242.0736b14f.chunk.js": "/static/js/242.0736b14f.chunk.js",
+    "static/js/242.77f4d41c.chunk.js": "/static/js/242.77f4d41c.chunk.js",
     "static/js/692.d0cedb2a.chunk.js": "/static/js/692.d0cedb2a.chunk.js",
+    "static/js/826.e614e3f9.chunk.js": "/static/js/826.e614e3f9.chunk.js",
+    "static/js/276.3824ad73.chunk.js": "/static/js/276.3824ad73.chunk.js",
     "static/js/787.c2651732.chunk.js": "/static/js/787.c2651732.chunk.js",
+    "static/media/blog4.md": "/static/media/blog4.0e19863847271c8ca090.md",
     "static/media/blog2.md": "/static/media/blog2.efa20e7532bd8960dc5a.md",
-    "static/media/blog4.md": "/static/media/blog4.2f75337a05170df6ac0f.md",
+    "static/media/blog6.md": "/static/media/blog6.1fe1911def3557eda0d0.md",
     "static/media/blog5.md": "/static/media/blog5.b286b5ec48c312b3e4a7.md",
     "static/media/blog1.md": "/static/media/blog1.835be0e98f29b9324781.md",
+    "static/media/blog7.md": "/static/media/blog7.c54741e23684e47ddd2d.md",
     "static/media/blog3.md": "/static/media/blog3.9163a9d7f12c6a51d5b6.md",
     "index.html": "/index.html",
-    "main.99178919.css.map": "/static/css/main.99178919.css.map",
-    "main.46dd8870.js.map": "/static/js/main.46dd8870.js.map",
+    "main.b5ac3c72.css.map": "/static/css/main.b5ac3c72.css.map",
+    "main.fc078e56.js.map": "/static/js/main.fc078e56.js.map",
     "787.c2651732.chunk.js.map": "/static/js/787.c2651732.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.99178919.css",
-    "static/js/main.46dd8870.js"
+    "static/css/main.b5ac3c72.css",
+    "static/js/main.fc078e56.js"
   ]
 }
