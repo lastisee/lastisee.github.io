@@ -3,39 +3,9 @@ import {marked} from 'marked'
 import styles from './BlogDetailM.less'
 import { useParams } from 'react-router-dom'
 import fileList from '../../md/fileList.json'
-import {markedHighlight} from "marked-highlight";
-import hljs from 'highlight.js';
-import 'highlight.js/styles/school-book.css'
-// import 'highlight.js/styles/base16/monokai.css'
-
-marked.use(markedHighlight({
-    langPrefix: 'hljs language-',
-    highlight(code, lang) {
-      const language = hljs.getLanguage(lang) ? lang : 'plaintext';
-      return hljs.highlight(code, { language }).value;
-    }
-}));
-  
-marked.parse(`
-\`\`\`javascript
-const highlight = "code";
-\`\`\`
-`);
+import { addClassToPreTags } from '../BlogDetail'
 
 const BlogDetail = ({fileName}) => {
-
-    
-    const rendererMD = new marked.Renderer();
-    marked.setOptions({
-        renderer: rendererMD,
-        gfm: true,
-        tables: true,
-        breaks: false,
-        pedantic: false,
-        sanitize: false,
-        smartLists: true,
-        smartypants: false
-      });
 
     const params = useParams()
 
@@ -47,18 +17,18 @@ const BlogDetail = ({fileName}) => {
     }, [params?.id])
 
     useEffect(()=> {
-        if(currentFile){
+        if(currentFile && !markdownContent){
             const loadFile = async () => {
                 const mdFile = await import(`../../md/${currentFile.fileName}`)
                 const filePath = await mdFile.default
                 fetch(filePath).then(res => res.text()).then(text => {
-                    const html = marked(text)
+                    const html = addClassToPreTags(marked(text))
                     setMarkdownContent(html)
                 })
             }
             loadFile()
         }
-    }, [currentFile])
+    }, [currentFile, markdownContent])
 
     return (
         <div className={styles.blogDetail}>
