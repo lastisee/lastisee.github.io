@@ -11,16 +11,16 @@ const MyHeaderM = () => {
     const menuList = (
         <div className={styles.menuList}>
             <div className={styles.menuItem}>
-                <Link to='/'>Home</Link>
+                <Link to='/' onClick={()=>setVisible(false)}>Home</Link>
             </div>
             <div className={styles.menuItem}>
-                <Link to='/javascript'>JavaScript</Link>
+                <Link to='/javascript' onClick={()=>setVisible(false)}>JavaScript</Link>
             </div>
             <div className={styles.menuItem}>
-                <Link to='/react'>React</Link>
+                <Link to='/react' onClick={()=>setVisible(false)}>React</Link>
             </div>
             <div className={styles.menuItem}>
-                <Link to='/note'>随记</Link>
+                <Link to='/note' onClick={()=>setVisible(false)}>随记</Link>
             </div>
         </div>
     )
