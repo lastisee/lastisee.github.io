@@ -46,5 +46,13 @@
         "title": "在umi项目中，实现前端文件更新之后页面进行提示",
         "createDate": "2023-07-02",
         "archive": "note"
+    },
+    {
+        "id": 7,
+        "fileName": "blog6.md",
+        "author": "lastisee",
+        "title": "react 开发过程中，使用函数式组件无限刷新（rerender)问题排查",
+        "createDate": "2023-07-02",
+        "archive": "react"
     }
 ]
