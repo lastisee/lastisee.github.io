@@ -67,7 +67,7 @@ const Ball = ({colorIdx = 0, id = '', updateLoc}) => {
                 }
             });
         }
-    }, [isToEdge])
+    }, [isToEdge, id])
 
     useEffect(()=> {
         if(keyframe){
@@ -79,7 +79,7 @@ const Ball = ({colorIdx = 0, id = '', updateLoc}) => {
             document.getElementsByTagName('head')[0].appendChild(style);
             setIsToEdge(false)
         }
-    }, [keyframe, id])
+    }, [keyframe])
 
     useEffect(()=> {
         //只会执行一次，是给小球第一次运动的终点位置赋值

@@ -1,17 +1,41 @@
 import { useEffect, useState, useMemo } from 'react'
 import {marked} from 'marked'
-import {mangle} from 'marked-mangle'
 import styles from './BlogDetail.less'
 import { useParams } from 'react-router-dom'
 import fileList from '../md/fileList.json'
+import {markedHighlight} from "marked-highlight";
+import hljs from 'highlight.js';
+// import 'highlight.js/styles/vs.css'
+import 'highlight.js/styles/school-book.css'
+// import 'highlight.js/styles/base16/harmonic16-dark.css'
+// import 'highlight.js/styles/base16/monokai.css'
 
+marked.use(markedHighlight({
+    langPrefix: 'hljs language-',
+    highlight(code, lang) {
+      const language = hljs.getLanguage(lang) ? lang : 'plaintext';
+      return hljs.highlight(code, { language }).value;
+    }
+}));
+  
+marked.parse(`
+\`\`\`javascript
+const highlight = "code";
+\`\`\`
+`);
 const BlogDetail = ({fileName}) => {
 
-    marked.use(mangle)
-    marked.use({
-        mangle: false,
-        headerIds: false,
-    })
+    const rendererMD = new marked.Renderer();
+    marked.setOptions({
+        renderer: rendererMD,
+        gfm: true,
+        tables: true,
+        breaks: false,
+        pedantic: false,
+        sanitize: false,
+        smartLists: true,
+        smartypants: false
+      });
     const params = useParams()
 
     const [markdownContent, setMarkdownContent] = useState('') //html内容
