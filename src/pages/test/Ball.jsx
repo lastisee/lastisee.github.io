@@ -27,11 +27,12 @@ const Ball = ({colorIdx = 0, id = '', updateLoc}) => {
     const [hasInit, setHasInit] = useState(false)
     //如果到达了边缘 重新生成targetLoc
     const [isToEdge, setIsToEdge] = useState(true)
-    console.log("🚀 ~ file: Ball.jsx ~ line 30 ~ Ball ~ isToEdge", isToEdge)
 
     const [currentLoc, setCurrentLoc] = useState()
 
     const [targetLoc, setTargetLoc] = useState()
+
+    const [listenInterval, setListenInterval] = useState(undefined)
 
     const keyframe = useMemo(()=> {
         if(currentLoc && targetLoc){
@@ -87,6 +88,7 @@ const Ball = ({colorIdx = 0, id = '', updateLoc}) => {
             const angle = Number.parseInt(360 * Math.random())
             const {x, y} = calculateIntersectionPoints(currentLoc.x, currentLoc.y, angle, wrapper.clientWidth, wrapper.clientHeight)
             setIsToEdge(false)
+            setListenInterval(100)
             setTargetLoc({x, y})
         }
     }, [isToEdge, keyframe, currentLoc])
@@ -117,20 +119,22 @@ const Ball = ({colorIdx = 0, id = '', updateLoc}) => {
         const rect = ballRef?.current.getBoundingClientRect();
         const x = Number.parseInt(rect.left)
         const y = Number.parseInt(rect.top)
-        console.log('当前位置', x, y)
-        if(!isToEdge && (x <= 1 || x >= wrapper.clientWidth - 79 || y <= 1 || y >= wrapper.clientHeight - 79)){
+        // console.log('当前位置', x, y)
+        if(!isToEdge && (x <= 1 || x >= wrapper.clientWidth - 79 || y <= 65 || y >= wrapper.clientHeight - 79)){
             console.log('到达边界', x, y)
             setIsToEdge(true)
+            setListenInterval(undefined)
             setCurrentLoc(targetLoc)
             setTargetLoc(undefined)
         }
         updateLoc(id, x, y)
-    }, 1000)
+    }, listenInterval)
 
     return (
         <div id={id} ref={ballRef} className={classNames(styles.ball)} style={{backgroundColor: colorMap[colorIdx], 
-            animation: `ball-run-${id} 5s infinite`}}>
+            animation: `ball-run-${id} 10s infinite`}}>
             {/* animation: `ball-run-${id} 3s ${isToEdge ? 'paused' : 'running'} 1`}}> */}
+            <span>{keyframe}</span>
         </div>
     )
 }
