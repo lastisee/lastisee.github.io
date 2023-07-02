@@ -16,11 +16,11 @@ export function addClassToPreTags(html) {
     const preTags = doc.querySelectorAll('pre:not([class])');
     preTags.forEach(tag => {
       tag.classList.add('hljs');
-      tag.style.padding = '12px'
+    //   tag.style.padding = '12px'
     });
     return doc.documentElement.outerHTML;
   }
-  
+
 //这个设置是全局的，且只能放在组件外，所以移动端详情页不需要做这个配置，直接使用marked即可
 marked.use(markedHighlight({
     langPrefix: 'hljs language-',
