@@ -62,5 +62,13 @@
         "title": "使用marked-highlight及highlight.js完成md文件的代码高亮",
         "createDate": "2023-07-02",
         "archive": "note"
+    },
+    {
+        "id": 9,
+        "fileName": "blog9.md",
+        "author": "lastisee",
+        "title": "在wangeditor5中，从wps粘贴的内容字号丢失的问题解决",
+        "createDate": "2023-07-03",
+        "archive": "note"
     }
 ]
