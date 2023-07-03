@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/static/css/main.b914da65.css",
-    "main.js": "/static/js/main.88a7ff28.js",
+    "main.css": "/static/css/main.80663eb8.css",
+    "main.js": "/static/js/main.60dd89c1.js",
     "static/js/978.ad13c691.chunk.js": "/static/js/978.ad13c691.chunk.js",
     "static/js/199.d40a75ce.chunk.js": "/static/js/199.d40a75ce.chunk.js",
     "static/js/389.3b33388b.chunk.js": "/static/js/389.3b33388b.chunk.js",
@@ -10,22 +10,24 @@
     "static/js/826.e614e3f9.chunk.js": "/static/js/826.e614e3f9.chunk.js",
     "static/js/276.3824ad73.chunk.js": "/static/js/276.3824ad73.chunk.js",
     "static/js/79.b06d8afe.chunk.js": "/static/js/79.b06d8afe.chunk.js",
+    "static/js/322.6c0c851f.chunk.js": "/static/js/322.6c0c851f.chunk.js",
     "static/js/787.c2651732.chunk.js": "/static/js/787.c2651732.chunk.js",
     "static/media/blog4.md": "/static/media/blog4.0e19863847271c8ca090.md",
     "static/media/blog8.md": "/static/media/blog8.cb64c9490492883c0255.md",
     "static/media/blog2.md": "/static/media/blog2.efa20e7532bd8960dc5a.md",
     "static/media/blog6.md": "/static/media/blog6.1fe1911def3557eda0d0.md",
     "static/media/blog5.md": "/static/media/blog5.b286b5ec48c312b3e4a7.md",
+    "static/media/blog9.md": "/static/media/blog9.0369c3c7525d4f96da9b.md",
     "static/media/blog1.md": "/static/media/blog1.835be0e98f29b9324781.md",
     "static/media/blog7.md": "/static/media/blog7.c54741e23684e47ddd2d.md",
     "static/media/blog3.md": "/static/media/blog3.9163a9d7f12c6a51d5b6.md",
     "index.html": "/index.html",
-    "main.b914da65.css.map": "/static/css/main.b914da65.css.map",
-    "main.88a7ff28.js.map": "/static/js/main.88a7ff28.js.map",
+    "main.80663eb8.css.map": "/static/css/main.80663eb8.css.map",
+    "main.60dd89c1.js.map": "/static/js/main.60dd89c1.js.map",
     "787.c2651732.chunk.js.map": "/static/js/787.c2651732.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.b914da65.css",
-    "static/js/main.88a7ff28.js"
+    "static/css/main.80663eb8.css",
+    "static/js/main.60dd89c1.js"
   ]
 }
