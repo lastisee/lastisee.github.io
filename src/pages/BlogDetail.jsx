@@ -4,6 +4,7 @@ import styles from './BlogDetail.less'
 import { useParams } from 'react-router-dom'
 import fileList from '../md/fileList.json'
 import {markedHighlight} from "marked-highlight";
+import {Spin} from 'antd'
 import hljs from 'highlight.js';
 // import 'highlight.js/styles/vs.css'
 // import 'highlight.js/styles/school-book.css'
@@ -62,9 +63,10 @@ const BlogDetail = ({fileName}) => {
                 <span className={styles.title}>发布日期：</span>
                 <span className={styles.text}>{currentFile.createDate}</span>
             </div>
-            <div className={styles.content}>
+            {markdownContent && <div className={styles.content}>
                 <div dangerouslySetInnerHTML={{ __html: markdownContent}}></div>
-            </div>
+            </div>}
+            {!markdownContent && <div className={styles.loading}><Spin tip='数据加载中...'><div className="content" /></Spin></div>}
         </div>
     )
 }
