@@ -30,19 +30,7 @@
                       // 语言包加载
   					language: 'zh-Hans',
   					language_url: '/zh-Hans.js',
-  					menubar: false, // 顶部菜单栏
-  					resize: false, // 右下角调整大小
-  					statusbar: false, // 底部状态栏
-  					object_resizing: false, // 禁止设置媒体大小
-  					// images_upload_handler: imagesUploadHandler,
-  					content_style:
-  						'body { font-family:Helvetica,Arial,sans-serif; font-size:14px }',
-  					default_link_target: '_blank',
-  					plugins: 'image autolink link lists', // 部分功能需要先用插件声明
-  					toolbar: [
-  						'formatselect | fontsizeselect | bold italic strikethrough forecolor backcolor |',
-  						'undo redo | alignleft aligncenter alignright alignjustify | numlist bullist outdent indent | removeformat | image | link |'
-  					]
+  					//其余配置项省略
   				}}
   			// onDirty={onDirty}
   			></Editor>
