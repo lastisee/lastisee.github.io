@@ -78,5 +78,13 @@
         "title": "如何在内网中使用tinymce富文本组件",
         "createDate": "2023-07-04",
         "archive": "note"
+    },
+    {
+        "id": 11,
+        "fileName": "blog11.md",
+        "author": "lastisee",
+        "title": "JavaScript中使用组合函数实现管道式调用（参数个数不一致的处理）",
+        "createDate": "2023-07-06",
+        "archive": "javascript"
     }
 ]
