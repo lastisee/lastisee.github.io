@@ -1,0 +1,24 @@
+{
+    "extends": [
+        "react-app",
+        "react-app/jest"
+    ],
+    "plugins": [
+        "react-hooks",
+        "pipelineOperator"
+    ],
+    "rules": {
+        "react-hooks/exhaustive-deps": "warn"
+    },
+    "parserOptions": {
+        "babelOptions": {
+            "presets": [
+                [
+                    "babel-preset-react-app",
+                    false
+                ],
+                "babel-preset-react-app/prod"
+            ]
+        }
+    }
+}
