@@ -44,7 +44,11 @@
   
   // 调用 calculate 函数，实现管道式调用
   const result = calculate(2, 3); // 等价于 square(multiply(add(2), 3)) = 81
-  console.log(result); // 输出 81
+  //使用管道操作符 结果等于9
+  const result2 = add(2) |> square
+  
+  console.log(result, result2); // 输出 81
+  
   ```
 
   
