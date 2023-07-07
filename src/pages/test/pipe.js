@@ -39,6 +39,7 @@ const calculate = compose(square, multiply, add);
 
 // 调用 calculate 函数，实现管道式调用
 const result = calculate(2, 3); // 等价于 square(multiply(add(2), 3)) = 81
-const result2 = compose(square, multiply, add)([2, 3]); // 等价于 square(multiply(add(2), 3)) = 81
+// const result2 = 2 |> add |> (_ => multiply(3, _) |> square
+const result3 = add(2) |> square
 
-console.log(result, result2); // 输出 81
+console.log(result, result3); // 输出 81
