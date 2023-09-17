@@ -86,5 +86,13 @@
         "title": "JavaScript中使用组合函数实现管道式调用（参数个数不一致的处理）",
         "createDate": "2023-07-06",
         "archive": "javascript"
+    },
+    {
+        "id": 12,
+        "fileName": "blog12.md",
+        "author": "lastisee",
+        "title": "兼容ie8的解决方案",
+        "createDate": "2023-07-06",
+        "archive": "note"
     }
 ]
