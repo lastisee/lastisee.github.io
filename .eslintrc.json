@@ -4,8 +4,8 @@
         "react-app/jest"
     ],
     "plugins": [
-        "react-hooks",
-        "pipelineOperator"
+        "react-hooks"
+        // "pipelineOperator"
     ],
     "rules": {
         "react-hooks/exhaustive-deps": "warn"
