@@ -49,6 +49,7 @@ export function calculateIntersectionPoints(x, y, angle, width, height) {
       targetX -= 80
     }
     if(targetY > 0){
+      console.log('aaa')
       targetY -= 20
     }
     return {x: targetX, y: targetY}
