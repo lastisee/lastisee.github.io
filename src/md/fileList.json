@@ -94,5 +94,13 @@
         "title": "兼容ie8的解决方案",
         "createDate": "2023-09-17",
         "archive": "note"
+    },
+    {
+        "id": 12,
+        "fileName": "blog12.md",
+        "author": "lastisee",
+        "title": "对人性的一点感悟",
+        "createDate": "2024-06-05",
+        "archive": "note"
     }
 ]
