@@ -96,10 +96,18 @@
         "archive": "note"
     },
     {
-        "id": 12,
-        "fileName": "blog12.md",
+        "id": 13,
+        "fileName": "blog13.md",
         "author": "lastisee",
         "title": "对人性的一点感悟",
+        "createDate": "2024-06-05",
+        "archive": "note"
+    },
+    {
+        "id": 14,
+        "fileName": "blog14.md",
+        "author": "lastisee",
+        "title": "gh-pages站点文章发布过程",
         "createDate": "2024-06-05",
         "archive": "note"
     }
