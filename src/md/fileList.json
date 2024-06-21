@@ -110,5 +110,13 @@
         "title": "gh-pages站点文章发布过程",
         "createDate": "2024-06-05",
         "archive": "note"
+    },
+    {
+        "id": 15,
+        "fileName": "blog15.md",
+        "author": "lastisee",
+        "title": "是否需要尽早设立目标",
+        "createDate": "2024-06-21",
+        "archive": "note"
     }
 ]
