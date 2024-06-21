@@ -27,7 +27,7 @@ const MyHeaderM = () => {
     return (
         <div className={styles.headerM}>
             <div className={styles.title}>
-                lastisee
+                <Link to='/' className={styles.webSlogan}>lastisee</Link>
             </div>
             <div className={styles.icon} onClick={()=> setVisible(true)}>
                 <UnorderedListOutline />

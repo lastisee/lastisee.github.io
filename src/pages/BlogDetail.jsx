@@ -1,10 +1,10 @@
 import { useEffect, useState, useMemo } from 'react'
-import {marked} from 'marked'
+import { marked } from 'marked'
 import styles from './BlogDetail.less'
-import { useParams } from 'react-router-dom'
+import { useParams, useNavigate } from 'react-router-dom'
 import fileList from '../md/fileList.json'
-import {markedHighlight} from "marked-highlight";
-import {Spin} from 'antd'
+import { markedHighlight } from "marked-highlight";
+import { Spin } from 'antd'
 import hljs from 'highlight.js';
 // import 'highlight.js/styles/vs.css'
 // import 'highlight.js/styles/school-book.css'
@@ -16,34 +16,35 @@ export function addClassToPreTags(html) {
     const doc = parser.parseFromString(html, 'text/html');
     const preTags = doc.querySelectorAll('pre:not([class])');
     preTags.forEach(tag => {
-      tag.classList.add('hljs');
-    //   tag.style.padding = '12px'
+        tag.classList.add('hljs');
+        //   tag.style.padding = '12px'
     });
     return doc.documentElement.outerHTML;
-  }
+}
 
 //这个设置是全局的，且只能放在组件外，所以移动端详情页不需要做这个配置，直接使用marked即可
 marked.use(markedHighlight({
     langPrefix: 'hljs language-',
     highlight(code, lang) {
-    const language = hljs.getLanguage(lang) ? lang : 'plaintext';
-    return hljs.highlight(code, { language }).value;
+        const language = hljs.getLanguage(lang) ? lang : 'plaintext';
+        return hljs.highlight(code, { language }).value;
     }
 }));
 
-const BlogDetail = ({fileName}) => {
+const BlogDetail = ({ fileName }) => {
 
     const params = useParams()
+    const navigate = useNavigate()
 
     const [markdownContent, setMarkdownContent] = useState('') //html内容
 
-    const currentFile = useMemo(()=> {
-        if(!params?.id) return
+    const currentFile = useMemo(() => {
+        if (!params?.id) return
         return fileList.find(f => f.id === Number(params?.id))
     }, [params?.id])
 
-    useEffect(()=> {
-        if(currentFile && !markdownContent){
+    useEffect(() => {
+        if (currentFile && !markdownContent) {
             const loadFile = async () => {
                 const mdFile = await import(`../md/${currentFile.fileName}`)
                 const filePath = await mdFile.default
@@ -59,12 +60,15 @@ const BlogDetail = ({fileName}) => {
 
     return (
         <div className={styles.blogDetail}>
-            <div className={styles.date}>
-                <span className={styles.title}>发布日期：</span>
-                <span className={styles.text}>{currentFile.createDate}</span>
+            <div className={styles.topInfo}>
+                <div className={styles.leftBack} titile="返回" onClick={()=>navigate(-1)}>返回</div>
+                <div className={styles.date}>
+                    <span className={styles.title}>发布日期：</span>
+                    <span className={styles.text}>{currentFile.createDate}</span>
+                </div>
             </div>
             {markdownContent && <div className={styles.content}>
-                <div dangerouslySetInnerHTML={{ __html: markdownContent}}></div>
+                <div dangerouslySetInnerHTML={{ __html: markdownContent }}></div>
             </div>}
             {!markdownContent && <div className={styles.loading}><Spin tip='数据加载中...'><div className="content" /></Spin></div>}
         </div>

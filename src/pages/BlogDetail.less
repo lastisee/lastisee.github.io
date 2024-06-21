@@ -21,9 +21,20 @@
             font-family: "Lucida Console",Consolas,"Courier",monospace;
         }
     }
-    .date{
-        text-align: center;
+    .topInfo{
+        display: flex;
+        justify-content: space-between;
+        .leftBack{
+            cursor: pointer;
+            &:hover{
+                color: #1890ff;
+            }
+        }
+        .date{
+            text-align: center;
+        }
     }
+    
     .loading{
         text-align: center;
         margin-top: 100px;

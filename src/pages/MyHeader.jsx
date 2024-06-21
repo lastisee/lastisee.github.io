@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom'
 const MyHeader = () => {
     return (
         <div className={styles.myHeader}>
-            <div className={styles.title}>lastisee</div>
+            <div className={styles.title}><Link to='/' className={styles.webSlogan}>lastisee</Link></div>
             <div className={styles.link}>
                 <Link to='/'>Home</Link>
                 <Link to='/javascript'>JavaScript</Link>
