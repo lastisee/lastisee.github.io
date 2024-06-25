@@ -10,6 +10,7 @@ import hljs from 'highlight.js';
 // import 'highlight.js/styles/school-book.css'
 // import 'highlight.js/styles/base16/harmonic16-dark.css'
 import 'highlight.js/styles/base16/monokai.css'
+import NotFound from './NotFound'
 
 export function addClassToPreTags(html) {
     const parser = new DOMParser();
@@ -35,12 +36,20 @@ const BlogDetail = ({ fileName }) => {
 
     const params = useParams()
     const navigate = useNavigate()
+    const [isNotFound, setIsNotFound] = useState(false)
 
     const [markdownContent, setMarkdownContent] = useState('') //html内容
 
     const currentFile = useMemo(() => {
-        if (!params?.id) return
-        return fileList.find(f => f.id === Number(params?.id))
+        if (!params?.id) {
+            return false
+        }else{
+            const target = fileList.find(f => f.id === Number(params?.id))
+            if(!target) {
+                setIsNotFound(true)
+            }
+            return target ?? false
+        }
     }, [params?.id])
 
     useEffect(() => {
@@ -60,7 +69,8 @@ const BlogDetail = ({ fileName }) => {
 
     return (
         <div className={styles.blogDetail}>
-            <div className={styles.topInfo}>
+            {isNotFound ? <NotFound /> :
+            <><div className={styles.topInfo}>
                 <div className={styles.leftBack} titile="返回" onClick={()=>navigate(-1)}>返回</div>
                 <div className={styles.date}>
                     <span className={styles.title}>发布日期：</span>
@@ -71,6 +81,8 @@ const BlogDetail = ({ fileName }) => {
                 <div dangerouslySetInnerHTML={{ __html: markdownContent }}></div>
             </div>}
             {!markdownContent && <div className={styles.loading}><Spin tip='数据加载中...'><div className="content" /></Spin></div>}
+            </>
+            }
         </div>
     )
 }

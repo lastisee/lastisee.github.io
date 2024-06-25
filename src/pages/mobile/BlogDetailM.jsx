@@ -5,17 +5,26 @@ import { useParams, useNavigate } from 'react-router-dom'
 import fileList from '../../md/fileList.json'
 import { addClassToPreTags } from '../BlogDetail'
 import { Spin } from 'antd'
+import NotFound from '../NotFound'
 
 const BlogDetail = ({ fileName }) => {
 
     const params = useParams()
+    const [isNotFound, setIsNotFound] = useState(false)
     const navigate = useNavigate()
 
     const [markdownContent, setMarkdownContent] = useState('') //html内容
 
     const currentFile = useMemo(() => {
-        if (!params?.id) return
-        return fileList.find(f => f.id === Number(params?.id))
+        if (!params?.id) {
+            return false
+        } else {
+            const target = fileList.find(f => f.id === Number(params?.id))
+            if (!target) {
+                setIsNotFound(true)
+            }
+            return target ?? false
+        }
     }, [params?.id])
 
     useEffect(() => {
@@ -34,17 +43,20 @@ const BlogDetail = ({ fileName }) => {
 
     return (
         <div className={styles.blogDetail}>
-            <div className={styles.topInfo}>
-                <div className={styles.leftBack} onClick={()=>navigate(-1)}>返回</div>
-                <div className={styles.date}>
-                    <span className={styles.title}>发布日期：</span>
-                    <span className={styles.text}>{currentFile.createDate}</span>
+            {isNotFound ? <NotFound /> :
+                <><div className={styles.topInfo}>
+                    <div className={styles.leftBack} onClick={() => navigate(-1)}>返回</div>
+                    <div className={styles.date}>
+                        <span className={styles.title}>发布日期：</span>
+                        <span className={styles.text}>{currentFile.createDate}</span>
+                    </div>
                 </div>
-            </div>
-            {markdownContent && <div className={styles.content}>
-                <div dangerouslySetInnerHTML={{ __html: markdownContent }}></div>
-            </div>}
-            {!markdownContent && <div className={styles.loading}><Spin tip='数据加载中...'><div className="content" /></Spin></div>}
+                    {markdownContent && <div className={styles.content}>
+                        <div dangerouslySetInnerHTML={{ __html: markdownContent }}></div>
+                    </div>}
+                    {!markdownContent && <div className={styles.loading}><Spin tip='数据加载中...'><div className="content" /></Spin></div>}
+                </>
+            }
         </div>
     )
 }
