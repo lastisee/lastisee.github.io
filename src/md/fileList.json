@@ -24,14 +24,6 @@
         "archive": "react"
     },
     {
-        "id": 4,
-        "fileName": "blog4.md",
-        "author": "lastisee",
-        "title": "使用python，在两份文件中寻找文本内容匹配的答案",
-        "createDate": "2023-06-21",
-        "archive": "note"
-    },
-    {
         "id": 5,
         "fileName": "blog5.md",
         "author": "lastisee",

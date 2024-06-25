@@ -18,6 +18,7 @@ import NotFound from './pages/NotFound';
 import BlogListM from './pages/mobile/BlogListM';
 import BlogDetailM from './pages/mobile/BlogDetailM';
 import ScreenSaver from './pages/test/ScreenSaver';
+import Building from './pages/elevator/Building'
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 const deviceType = new MobileDetect(window.navigator.userAgent)
@@ -35,6 +36,7 @@ root.render(
             <Route path='/react' element={<BlogList archiveName='react' />} />
             <Route path='/note' element={<BlogList archiveName='note' />} />
             <Route path='/screen' element={<ScreenSaver />} />
+            <Route path='/elevator' element={<Building />} />
             <Route path='/blog/:id' element={<BlogDetail />} />
           </Route>
           :
