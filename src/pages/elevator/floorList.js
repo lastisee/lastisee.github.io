@@ -31,61 +31,61 @@ const floorList1 = [
 const floorList2 = [
     {
         floor: 'b2',
-        id: 1,
+        id: 8,
     },
     {
         floor: 'b1',
-        id: 2,
+        id: 9,
     },
     {
         floor: '1',
-        id: 3,
+        id: 10,
     },
     {
         floor: '2',
-        id: 4,
+        id: 11,
     },
     {
         floor: '3',
-        id: 5,
+        id: 12,
     },
     {
         floor: '4',
-        id: 6,
+        id: 13,
     },
     {
         floor: '5',
-        id: 7,
+        id: 14,
     },
 ]
 const floorList3 = [
     {
         floor: 'b2',
-        id: 1,
+        id: 15,
     },
     {
         floor: 'b1',
-        id: 2,
+        id: 16,
     },
     {
         floor: '1',
-        id: 3,
+        id: 17,
     },
     {
         floor: '2',
-        id: 4,
+        id: 18,
     },
     {
         floor: '3',
-        id: 5,
+        id: 19,
     },
     {
         floor: '4',
-        id: 6,
+        id: 20,
     },
     {
         floor: '5',
-        id: 7,
+        id: 21,
     },
 ]
 
